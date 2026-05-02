@@ -145,7 +145,7 @@ function buildSummaryRows(played: GameLogRow[]): SummaryRow[] {
       dreb: mean("dreb"), oreb: mean("oreb"),
       tov: mean("tov"), stl: mean("stl"), blk: mean("blk"), stocks: mean("stocks"),
       plus_minus: mean("plus_minus"), pf: mean("pf"),
-    });
+    } as SummaryRow);
   }
   return out;
 }

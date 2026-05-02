@@ -93,7 +93,7 @@ export default function DistributionChart({
               padding: "6px 10px",
             }}
             labelStyle={{ color: "#52525b", marginBottom: 4 }}
-            formatter={(v: number) => [v, "games"]}
+            formatter={((v: unknown) => [v as number, "games"]) as never}
             labelFormatter={(_, payload) => {
               const p = payload?.[0]?.payload as { bin?: string } | undefined;
               return `${label}: ${p?.bin ?? ""}`;

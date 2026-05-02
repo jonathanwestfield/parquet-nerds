@@ -101,14 +101,15 @@ export default function TrendChart({
               boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
             }}
             labelStyle={{ color: "#52525b", marginBottom: 4 }}
-            formatter={(v: number, name: string, item: { payload?: Point }) => {
+            formatter={((v: unknown, name: unknown, item: { payload?: Point }) => {
+              const num = Number(v);
               if (name === "value") {
                 const stype = item.payload?.isPlayoff ? "Playoff" : "Game";
-                return [v.toFixed(1), stype];
+                return [num.toFixed(1), stype];
               }
-              if (name === "rolling") return [v.toFixed(1), `${rollingWindow}-game avg`];
-              return [v.toFixed(1), name];
-            }}
+              if (name === "rolling") return [num.toFixed(1), `${rollingWindow}-game avg`];
+              return [num.toFixed(1), String(name ?? "")];
+            }) as never}
             labelFormatter={(l) => `Game ${l}`}
           />
           <ReferenceLine

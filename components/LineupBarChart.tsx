@@ -99,11 +99,12 @@ export default function LineupBarChart({
               padding: "6px 10px",
               boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
             }}
-            formatter={(value: number, name: string) => {
-              if (name === "mpg") return [`${value.toFixed(1)} min/game`, "MPG"];
-              if (name === "plusMinus") return [`${value > 0 ? "+" : ""}${Math.round(value)}`, "Total +/-"];
-              return [value, name];
-            }}
+            formatter={((value: unknown, name: unknown) => {
+              const v = Number(value);
+              if (name === "mpg") return [`${v.toFixed(1)} min/game`, "MPG"];
+              if (name === "plusMinus") return [`${v > 0 ? "+" : ""}${Math.round(v)}`, "Total +/-"];
+              return [v, String(name ?? "")];
+            }) as never}
             labelFormatter={(l) => l}
           />
           <ReferenceLine yAxisId="right" y={0} stroke="#a1a1aa" strokeWidth={1} />
