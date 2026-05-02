@@ -2,9 +2,12 @@ import "server-only";
 import path from "node:path";
 import Database from "better-sqlite3";
 
+// Default to the bundled slim DB inside nba-web/data so deploys are
+// self-contained. Override with NBA_DB_PATH for local dev pointing at
+// the full ETL output.
 const DB_PATH =
   process.env.NBA_DB_PATH ??
-  path.join(process.cwd(), "..", "nba-stats 6", "data", "nba.db");
+  path.join(process.cwd(), "data", "nba.db");
 
 declare global {
   // eslint-disable-next-line no-var
