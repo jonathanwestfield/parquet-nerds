@@ -13,6 +13,8 @@ import {
   seasonAggregates,
 } from "@/lib/queries";
 import { allPlayerSlugs, playerIdFromSlug } from "@/lib/slug";
+
+export const dynamic = "force-dynamic";
 import { computeSeasonAverages, rollingMean } from "@/lib/stats";
 import { computePlayerRanks } from "@/lib/ranks";
 import { fmt, fmtSigned, formatGameDate } from "@/lib/format";

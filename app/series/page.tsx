@@ -4,6 +4,8 @@
 import Link from "next/link";
 import { all } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 type SeriesRow = {
   season_label: string;
   a_id: number;

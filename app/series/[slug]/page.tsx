@@ -5,6 +5,8 @@
 //       so "better defense" is at the top)
 //   Bubble size = total minutes played
 //   Color = team
+export const dynamic = "force-dynamic";
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import LineupScatter, { type ScatterPoint } from "@/components/LineupScatter";

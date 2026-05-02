@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { allPlayerSlugs } from "@/lib/slug";
 
+export const dynamic = "force-dynamic";
+
 export default function PlayersIndex() {
   const players = allPlayerSlugs();
 
